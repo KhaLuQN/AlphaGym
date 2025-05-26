@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\CheckinController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\EquipmentController;
 use App\Http\Controllers\admin\MemberController;
@@ -18,6 +19,8 @@ Route::get('/member/index', [MemberController::class, 'index'])->name('members.i
 Route::post('/member/update', [MemberController::class, 'update'])->name('admin.members.update');
 Route::post('/members/store', [MemberController::class, 'store'])->name('admin.members.store');
 Route::get('/member/create', [MemberController::class, 'create'])->name('admin.members.create');
+Route::get('/member/{id}', [MemberController::class, 'show'])->name('admin.members.show');
+
 Route::get('/package/index', [MembershipplanController::class, 'index'])->name('admin.package.index');
 Route::post('/package/update', [MembershipPlanController::class, 'update'])->name('admin.package.update');
 Route::get('/package/create', [MembershipPlanController::class, 'create'])->name('admin.package.create');
@@ -44,3 +47,15 @@ Route::prefix('admin/equipment')->name('admin.equipment.')->group(function () {
 
     Route::delete('/{equipment}', [EquipmentController::class, 'destroy'])->name('destroy');
 });
+// Add these routes to your web.php file in the admin route group
+Route::prefix('admin')->name('admin.checkin.')->group(function () {
+
+    Route::post('/checkins/{checkin}/force-checkout', [CheckinController::class, 'forceCheckout'])->name('forceCheckout');
+
+    Route::post('/checkins/force-checkout-all', [CheckinController::class, 'forceCheckoutAll'])->name('forceCheckoutAll');
+    Route::get('/checkins/page', [CheckinController::class, 'checkinPage'])->name('checkinPage');
+    Route::get('/checkins', [CheckinController::class, 'index'])->name('index');
+    Route::post('/checkin/machine', [CheckinController::class, 'machineCheckin'])->name('machine');
+
+});
+Route::get('/members/{id}', [MemberController::class, 'show'])->name('admin.members.show');

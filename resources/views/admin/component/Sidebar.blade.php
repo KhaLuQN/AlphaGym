@@ -18,7 +18,8 @@
      <div id="sidebar-scrollbar">
          <nav class="iq-sidebar-menu">
              <ul id="iq-sidebar-toggle" class="iq-menu">
-                 <li><a href="admin-dashboard.html"><i class="las la-home iq-arrow-left"></i>Bảng Điều Khiển</a></li>
+                 <li><a href="{{ route('dashboard.index') }}"><i class="las la-home iq-arrow-left"></i>Bảng Điều
+                         Khiển</a></li>
 
                  <li>
                      <a href="#memberinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span
@@ -65,6 +66,11 @@
                  </li>
                  <li><a href="{{ route('admin.rfid.index') }}"><i class="las la-id-card-alt"></i>Thẻ RFID</a></li>
 
+                 <li><a href="{{ route('admin.checkin.index') }}"><i class="las la-id-card-alt"></i>quản lý ra vào </a>
+                 </li>
+                 <li><a href="{{ route('admin.checkin.checkinPage') }}"><i class="las la-id-card-alt"></i>Trang checkin
+                     </a>
+                 </li>
 
 
                  <li><a href="admin-payments.html"><i class="ri-record-circle-line"></i>Thanh Toán</a></li>

@@ -31,4 +31,10 @@ class Member extends Model
         return $this->hasOne(MemberSubscription::class, 'member_id')
             ->latestOfMany('end_date');
     }
+
+    public function checkins()
+    {
+        return $this->hasMany(Checkin::class, 'member_id', 'member_id');
+    }
+
 }
