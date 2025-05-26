@@ -6,15 +6,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MembershipPlan extends Model
 {
-    protected $table      = 'membershipplans';
+    protected $table = 'membership_plans';
+
     protected $primaryKey = 'plan_id';
 
     protected $fillable = [
         'plan_name',
         'duration_days',
         'price',
-        'is_free',
-        'discount_after',
         'discount_percent',
     ];
 

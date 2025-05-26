@@ -1,6 +1,8 @@
 @extends('admin.index')
 
-
+@section('title')
+    Thêm khách hàng
+@endsection
 @section('conten')
     <div id="content-page" class="content-page">
         <div class="container-fluid">
@@ -49,62 +51,7 @@
                                             </div>
                                         </div>
 
-                                        <!-- Membership Package Selection -->
-                                        <div class="form-group">
-                                            <label class="font-weight-bold">Gói tập <span
-                                                    class="text-danger">*</span></label>
-                                            <div class="card border-primary">
-                                                <div class="card-header bg-light py-2">
-                                                    <h6 class="mb-0 font-weight-bold"><i
-                                                            class="las la-dumbbell mr-2"></i>CHỌN
-                                                        GÓI TẬP</h6>
-                                                </div>
-                                                <div class="card-body p-3">
-                                                    <div class="row">
-                                                        @foreach ($packages as $package)
-                                                            <div class="col-md-6 mb-3">
-                                                                <div class="custom-control custom-radio">
-                                                                    <input type="radio" id="package{{ $package->id }}"
-                                                                        name="package_id" value="{{ $package->id }}"
-                                                                        class="custom-control-input"
-                                                                        {{ $loop->first ? 'checked' : '' }}>
-                                                                    <label
-                                                                        class="custom-control-label d-flex justify-content-between"
-                                                                        for="package{{ $package->id }}">
-                                                                        <span>
-                                                                            <strong>{{ $package->plan_name }}</strong><br>
-                                                                            {{ $package->duration_days }} ngày -
-                                                                            {{ number_format($package->price) }}đ
-                                                                            @if ($package->discount_percent > 0)
-                                                                                <br><small class="text-success">Giảm
-                                                                                    {{ $package->discount_percent }}%</small>
-                                                                            @endif
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        @endforeach
 
-                                                    </div>
-
-                                                    <!-- Additional Package Options -->
-                                                    <div class="form-group mt-3">
-                                                        <label>Ngày bắt đầu</label>
-                                                        <input type="date" name="start_date" class="form-control"
-                                                            value="{{ date('Y-m-d') }}">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="autoRenew" name="auto_renew">
-                                                            <label class="custom-control-label" for="autoRenew">Tự động gia
-                                                                hạn</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <!-- Notes Section -->
                                         <div class="form-group mt-2">

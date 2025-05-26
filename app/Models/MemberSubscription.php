@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class MemberSubscription extends Model
 {
-    protected $table      = 'membersubscriptions';
+    protected $table = 'membersubscriptions';
+
     protected $primaryKey = 'subscription_id';
 
     protected $fillable = [

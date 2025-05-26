@@ -21,16 +21,13 @@ class MemberController extends Controller
 
             ],
             'js'  => [
-                // Core JS
+
                 'admin/js/jquery.min.js',
                 'admin/js/popper.min.js',
                 'admin/js/bootstrap.min.js',
                 'admin/js/jquery.dataTables.min.js',
                 'admin/js/dataTables.bootstrap4.min.js',
-
-                // Hiệu ứng và thư viện khác
                 'admin/js/jquery.appear.js',
-
                 'admin/js/countdown.min.js',
                 'admin/js/waypoints.min.js',
                 'admin/js/jquery.counterup.min.js',
@@ -132,7 +129,7 @@ class MemberController extends Controller
                 'admin/js/stylecustom.js',
             ],
         ];
-        $packages = MembershipPlan::select('plan_name', 'duration_days', 'price', 'discount_percent')->get();
+        $packages = MembershipPlan::select('plan_id', 'plan_name', 'duration_days', 'price', 'discount_percent')->get();
 
         return view('admin.pages.member.create', compact('config', 'packages'));
 

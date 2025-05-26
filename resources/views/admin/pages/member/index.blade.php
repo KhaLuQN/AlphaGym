@@ -108,13 +108,13 @@
                                             <th width="5%">ID</th>
 
                                             <th width="5%">Ảnh</th>
-                                            <th width="15%">Họ tên</th>
+                                            <th width="20%">Họ tên</th>
                                             <th width="10%">SĐT</th>
                                             <th width="25%">Gói tập hiện tại</th>
                                             <th width="15%">Ngày hết hạn</th>
+                                            <th width="10%">Mã thẻ</th>
                                             <th width="15%">Trạng thái</th>
-                                            <th width="15%">Mã thẻ</th>
-                                            <th width="15%">Thao tác</th>
+                                            <th width="5%">Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>
