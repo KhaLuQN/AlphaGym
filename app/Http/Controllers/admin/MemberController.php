@@ -181,6 +181,7 @@ class MemberController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'full_name'    => 'required|string|max:100',
             'phone'        => 'required|string|max:15|unique:members,phone',

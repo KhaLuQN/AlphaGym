@@ -1,5 +1,7 @@
 @extends('admin.index')
-
+@section('title')
+    Tất cả thẻ RFID
+@endsection
 @section('conten')
     <div id="content-page" class="content-page">
         <div class="container-fluid">
@@ -106,7 +108,7 @@
             </div>
         </div>
 
-        <!-- Confirm Unlock Card Modal -->
+        <!--  Unlock Card Modal -->
         <div class="modal fade" id="unlockCardModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -134,7 +136,7 @@
             </div>
         </div>
 
-        <!-- Confirm Delete Card Modal -->
+        <!--  Delete Card Modal -->
         <div class="modal fade" id="deleteCardModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -178,60 +180,9 @@
             // Initialize tooltips
             $('[data-toggle="tooltip"]').tooltip();
 
-            // Lock Card Button Click
-            $('.lock-card-btn').click(function() {
-                const cardId = $(this).data('id');
-                $('#lockCardForm').attr('action', `/admin/rfid/${cardId}`);
-                $('#lockCardModal').modal('show');
-            });
 
-            // Confirm Lock Card
-            $('#confirmLockCard').click(function() {
-                $('#lockCardForm').submit();
-            });
 
-            // Unlock Card Button Click
-            $('.unlock-card-btn').click(function() {
-                const cardId = $(this).data('id');
-                $('#unlockCardForm').attr('action', `/admin/rfid/${cardId}`);
-                $('#unlockCardModal').modal('show');
-            });
 
-            // Confirm Unlock Card
-            $('#confirmUnlockCard').click(function() {
-                $('#unlockCardForm').submit();
-            });
-
-            // Delete Card Button Click
-            $('.delete-card-btn').click(function() {
-                const cardId = $(this).data('id');
-                $('#deleteCardForm').attr('action', `/admin/rfid/${cardId}`);
-                $('#deleteCardModal').modal('show');
-            });
-
-            // Confirm Delete Card
-            $('#confirmDeleteCard').click(function() {
-                $('#deleteCardForm').submit();
-            });
         });
     </script>
-@endsection
-
-@section('customcss')
-    <style>
-        .badge {
-            font-size: 0.85rem;
-            font-weight: 500;
-            padding: 0.35em 0.65em;
-        }
-
-        .table th {
-            white-space: nowrap;
-        }
-
-        .btn-sm {
-            padding: 0.25rem 0.5rem;
-            font-size: 0.75rem;
-        }
-    </style>
 @endsection

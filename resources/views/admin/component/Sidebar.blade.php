@@ -49,8 +49,22 @@
                  </li>
                  <li><a href="{{ route('admin.subscriptions.create') }}"><i class="las la-plus-circle"></i>Đăng ký
                          gói tập</a></li>
+
+                 <li>
+                     <a href="#equipment" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span
+                             class="ripple rippleEffect"></span><i class="las la-dumbbell"></i><span>Quản
+                             lý thiết bị</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                     <ul id="equipment" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+                         <li><a href="{{ route('admin.equipment.index') }}"><i class="las la-id-card-alt"></i>Danh sách
+                                 thiết bị</a></li>
+                         <li><a href="{{ route('admin.package.create') }}"><i class="las la-edit"></i>Thêm thiết bị </a>
+                         </li>
+
+
+                     </ul>
+                 </li>
                  <li><a href="{{ route('admin.rfid.index') }}"><i class="las la-id-card-alt"></i>Thẻ RFID</a></li>
-                 <li><a href="admin-device.html"><i class="ri-record-circle-line"></i>Thiết bị</a></li>
+
 
 
                  <li><a href="admin-payments.html"><i class="ri-record-circle-line"></i>Thanh Toán</a></li>
