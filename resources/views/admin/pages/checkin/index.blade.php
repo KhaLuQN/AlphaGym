@@ -91,8 +91,10 @@
 
                             <!-- Table -->
                             <div class="table-responsive">
-                                <table class="table table-bordered table-hover" id="checkinTable" width="100%"
+                                <table class="table table-bordered table-hover" id="checkin-table" width="100%"
                                     cellspacing="0">
+
+
                                     <thead class="thead-light">
                                         <tr>
                                             <th width="5%">STT</th>
@@ -262,4 +264,30 @@
             padding: 3rem 0;
         }
     </style>
+@endsection
+@section('customjs')
+    <script>
+        $(document).ready(function() {
+            $('#checkin-table').DataTable({
+                pageLength: 5,
+                order: [
+                    [3, 'desc']
+                ],
+                language: {
+                    lengthMenu: "Hiển thị _MENU_ bản ghi mỗi trang",
+                    zeroRecords: "Không tìm thấy dữ liệu",
+                    info: "Hiển thị _START_ đến _END_ của _TOTAL_ bản ghi",
+                    infoEmpty: "Không có dữ liệu",
+                    infoFiltered: "(lọc từ _MAX_ bản ghi)",
+                    search: "Tìm kiếm:",
+                    paginate: {
+                        first: "Đầu",
+                        last: "Cuối",
+                        next: "Sau",
+                        previous: "Trước"
+                    }
+                }
+            });
+        });
+    </script>
 @endsection

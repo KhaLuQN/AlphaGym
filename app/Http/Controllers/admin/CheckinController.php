@@ -11,10 +11,22 @@ class CheckinController extends Controller
     public function index(Request $request)
     {
         $config = [
+
+            'css' => [
+                'admin/css/bootstrap.min.css',
+                'admin/css/dataTables.bootstrap4.min.css',
+                'admin/css/typography.css',
+                'admin/css/style.css',
+                'admin/css/responsive.css',
+
+            ],
             'js'  => [
+
                 'admin/js/jquery.min.js',
                 'admin/js/popper.min.js',
                 'admin/js/bootstrap.min.js',
+                'admin/js/jquery.dataTables.min.js',
+                'admin/js/dataTables.bootstrap4.min.js',
                 'admin/js/jquery.appear.js',
                 'admin/js/countdown.min.js',
                 'admin/js/waypoints.min.js',
@@ -40,12 +52,7 @@ class CheckinController extends Controller
                 'admin/js/style-customizer.js',
                 'admin/js/chart-custom.js',
                 'admin/js/custom.js',
-            ],
-            'css' => [
-                'admin/css/bootstrap.min.css',
-                'admin/css/typography.css',
-                'admin/css/style.css',
-                'admin/css/responsive.css',
+                'admin/js/stylecustom.js',
             ],
         ];
 
@@ -59,7 +66,7 @@ class CheckinController extends Controller
             $query->whereDate('checkin_time', '<=', $request->end_date);
         }
 
-        $checkins = $query->orderByDesc('checkin_time')->paginate(10)->withQueryString();
+        $checkins = $query->orderByDesc('checkin_time')->paginate(20)->withQueryString();
 
         return view('admin.pages.checkin.index', compact('checkins', 'config'));
     }
@@ -89,10 +96,22 @@ class CheckinController extends Controller
     public function checkinPage()
     {
         $config = [
+
+            'css' => [
+                'admin/css/bootstrap.min.css',
+                'admin/css/dataTables.bootstrap4.min.css',
+                'admin/css/typography.css',
+                'admin/css/style.css',
+                'admin/css/responsive.css',
+
+            ],
             'js'  => [
+
                 'admin/js/jquery.min.js',
                 'admin/js/popper.min.js',
                 'admin/js/bootstrap.min.js',
+                'admin/js/jquery.dataTables.min.js',
+                'admin/js/dataTables.bootstrap4.min.js',
                 'admin/js/jquery.appear.js',
                 'admin/js/countdown.min.js',
                 'admin/js/waypoints.min.js',
@@ -118,12 +137,7 @@ class CheckinController extends Controller
                 'admin/js/style-customizer.js',
                 'admin/js/chart-custom.js',
                 'admin/js/custom.js',
-            ],
-            'css' => [
-                'admin/css/bootstrap.min.css',
-                'admin/css/typography.css',
-                'admin/css/style.css',
-                'admin/css/responsive.css',
+                'admin/js/stylecustom.js',
             ],
         ];
 
@@ -146,15 +160,15 @@ class CheckinController extends Controller
 
         $existingCheckin = Checkin::where('member_id', $member->member_id)
             ->whereNull('checkout_time')
-            ->orderBy('checkin_time', 'desc') // hoặc created_at
+            ->orderBy('checkin_time', 'desc')
             ->first();
 
         if ($existingCheckin) {
-            // Nếu tìm thấy checkin chưa checkout thì update checkout_time
+
             $existingCheckin->update(['checkout_time' => now()]);
             return back()->with('message', 'Đã check-out cho ' . $member->full_name);
         } else {
-            // Nếu chưa có checkin chưa checkout thì tạo mới checkin
+
             Checkin::create([
                 'member_id'    => $member->member_id,
                 'rfid_card_id' => $member->rfid_card_id,

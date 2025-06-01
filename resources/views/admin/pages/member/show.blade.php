@@ -116,7 +116,8 @@
                                         </div>
                                         <div class="card-body p-0">
                                             <div class="table-responsive">
-                                                <table class="table table-hover mb-0">
+                                                <table id="checkin-history-table" class="table table-hover mb-0">
+
                                                     <thead>
                                                         <tr>
                                                             <th>Thời gian</th>
@@ -236,4 +237,29 @@
             white-space: nowrap;
         }
     </style>
+@endsection
+
+
+@section('customjs')
+    <script>
+        $(document).ready(function() {
+            $('#checkin-history-table').DataTable({
+                pageLength: 5,
+                "language": {
+                    "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                    "zeroRecords": "Không có dữ liệu",
+                    "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                    "infoEmpty": "Không có dữ liệu phù hợp",
+                    "infoFiltered": "(lọc từ _MAX_ dòng)",
+                    "search": "Tìm kiếm:",
+                    "paginate": {
+                        "first": "Đầu",
+                        "last": "Cuối",
+                        "next": "Sau",
+                        "previous": "Trước"
+                    }
+                }
+            });
+        });
+    </script>
 @endsection

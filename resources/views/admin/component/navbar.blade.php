@@ -188,10 +188,9 @@
                     </li>
                     <li class="line-height pt-3">
                         <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
-                            <img src="images/user/1.jpg" class="img-fluid rounded-circle mr-3" alt="user">
                             <div class="caption">
-                                <h6 class="mb-1 line-height">Ông Trần Thuận</h6>
-                                <p class="mb-0 text-primary">Tài Khoản</p>
+                                <h6 class="mb-1 line-height">Nguyễn Đình Kha</h6>
+                                <p class="mb-0 text-center text-primary">ADMIN</p>
                             </div>
                         </a>
                         <div class="iq-sub-dropdown iq-user-dropdown">

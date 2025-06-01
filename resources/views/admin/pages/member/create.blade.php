@@ -118,7 +118,7 @@
 
                                 <div class="row mt-4">
                                     <div class="col-12 text-right">
-                                        <a href="{{ route('members.index') }}" class="btn btn-secondary mr-2">
+                                        <a href="{{ route('admin.members.index') }}" class="btn btn-secondary mr-2">
                                             <i class="las la-times mr-1"></i> Hủy bỏ
                                         </a>
                                         <button type="submit" class="btn btn-primary">

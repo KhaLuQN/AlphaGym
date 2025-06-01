@@ -20,6 +20,6 @@
         <script src="{{ asset($js) }}"></script>
     @endforeach
 @endif
-@yield('customjs')
 
+@yield('customjs')
 @include('admin.layout.foot')
