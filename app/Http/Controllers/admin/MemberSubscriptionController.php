@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Member;
 use App\Models\MembershipPlan;
 use App\Models\MemberSubscription;
+use App\Models\Payment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -80,27 +81,24 @@ class MemberSubscriptionController extends Controller
 
         $actualPrice = $package->price * (1 - $package->discount_percent / 100);
 
-        // Kiểm tra gói tập hiện tại còn hiệu lực hay không
         $currentSubscription = MemberSubscription::where('member_id', $request->member_id)
             ->where('end_date', '>=', now())
             ->orderByDesc('end_date')
             ->first();
 
-        // Xác định ngày bắt đầu gói mới
         if ($currentSubscription) {
-            // Nếu có gói hiện tại còn hiệu lực, bắt đầu sau ngày hết hạn gói cũ 1 ngày
+
             $startDate = Carbon::parse($currentSubscription->end_date)->addDay();
         } else {
-            // Nếu không có, bắt đầu từ ngày user chọn
+
             $startDate = Carbon::parse($request->start_date);
         }
 
-        // Tính ngày kết thúc gói tập mới
         $endDate = $startDate->copy()->addDays($package->duration_days);
 
         if ($request->payment_method === 'cash') {
-            // Lưu thông tin đăng ký và trạng thái thanh toán "paid" ngay
-            MemberSubscription::create([
+
+            $subscription = MemberSubscription::create([
                 'member_id'      => $request->member_id,
                 'plan_id'        => $package->plan_id,
                 'start_date'     => $startDate->toDateString(),
@@ -108,6 +106,14 @@ class MemberSubscriptionController extends Controller
                 'actual_price'   => $actualPrice,
                 'payment_status' => 'paid',
                 'payment_date'   => now(),
+            ]);
+
+            Payment::create([
+                'subscription_id' => $subscription->subscription_id,
+                'amount'          => $actualPrice,
+                'payment_date'    => now(),
+                'payment_method'  => 'Cash',
+                'notes'           => 'Thanh toán tiền mặt tại quầy',
             ]);
 
             return redirect()->back()->with('success', 'Đăng ký gói tập thành công và thanh toán tiền mặt!');

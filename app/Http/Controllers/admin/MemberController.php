@@ -68,7 +68,9 @@ class MemberController extends Controller
                 'phone'        => $member->phone,
                 'email'        => $member->email,
                 'notes'        => $member->notes,
-                'plan_name'    => optional(optional($member->latestSubscription)->plan)->plan_name ?? 'Chưa đăng ký',
+                'plans'        => $member->subscriptions->map(function ($sub) {
+                    return optional($sub->plan)->plan_name;
+                })->filter()->values()->all(),
                 'end_date'     => optional($member->latestSubscription)->end_date ?? '---',
 
                 'status'       => $member->status,

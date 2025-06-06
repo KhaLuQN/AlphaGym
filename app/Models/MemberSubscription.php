@@ -29,4 +29,9 @@ class MemberSubscription extends Model
     {
         return $this->belongsTo(MembershipPlan::class, 'plan_id');
     }
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
 }

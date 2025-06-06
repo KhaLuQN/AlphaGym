@@ -129,7 +129,16 @@
                                                 </td>
                                                 <td>{{ $result['full_name'] }}</td>
                                                 <td>{{ $result['phone'] }}</td>
-                                                <td>{{ $result['plan_name'] }}</td>
+                                                <td>
+                                                    @if (!empty($result['plans']))
+                                                        @foreach ($result['plans'] as $plan)
+                                                            <span class="badge bg-success">{{ $plan }}</span><br>
+                                                        @endforeach
+                                                    @else
+                                                        <span class="text-muted">Chưa đăng ký</span>
+                                                    @endif
+                                                </td>
+
                                                 <td>
                                                     @if (!empty($result['end_date']) && strtotime($result['end_date']))
                                                         {{ \Carbon\Carbon::parse($result['end_date'])->format('d/m/Y') }}
