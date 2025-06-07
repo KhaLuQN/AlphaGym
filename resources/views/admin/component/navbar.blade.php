@@ -46,6 +46,13 @@
                         </form>
                     </li>
                     <li class="nav-item nav-icon">
+                        <a href="{{ route('admin.subscriptions.create') }}" class=" iq-waves-effect text-gray rounded">
+                            <i class="las la-cart-plus"></i>
+
+                        </a>
+
+                    </li>
+                    <li class="nav-item nav-icon">
                         <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
                             <i class="ri-notification-2-line"></i>
                             <span class="bg-primary dots"></span>
@@ -110,6 +117,7 @@
                             </div>
                         </div>
                     </li>
+
                     <li class="nav-item nav-icon dropdown">
                         <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
                             <i class="ri-mail-line"></i>

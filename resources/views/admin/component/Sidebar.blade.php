@@ -38,18 +38,7 @@
                                 mới</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#subscriptionManagement" class="iq-waves-effect" data-toggle="collapse"
-                        aria-expanded="false">
-                        <i class="las la-id-badge iq-arrow-left"></i><span>Gói Đăng Ký</span>
-                        <i class="ri-arrow-right-s-line iq-arrow-right"></i>
-                    </a>
-                    <ul id="subscriptionManagement" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                        <li><a href="{{-- route('admin.subscriptions.index') --}}"><i class="las la-list-alt"></i>DS Gói Đã Đăng Ký</a></li>
-                        <li><a href="{{ route('admin.subscriptions.create') }}"><i class="las la-cart-plus"></i>Đăng ký
-                                Gói mới</a></li>
-                    </ul>
-                </li>
+
                 <li>
                     <a href="#planManagement" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
                         <i class="las la-cubes iq-arrow-left"></i><span>Gói Dịch Vụ</span>
@@ -87,7 +76,8 @@
                     <ul id="equipmentManagement" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         <li><a href="{{ route('admin.equipment.index') }}"><i class="las la-list"></i>Danh sách Thiết
                                 bị</a></li>
-                        <li><a href="{{ route('admin.equipment.create') }}"><i class="las la-plus"></i>Thêm Thiết bị</a>
+                        <li><a href="{{ route('admin.equipment.create') }}"><i class="las la-plus"></i>Thêm Thiết
+                                bị</a>
                         </li>
                     </ul>
                 </li>
