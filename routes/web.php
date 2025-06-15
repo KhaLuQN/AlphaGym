@@ -1,14 +1,16 @@
 <?php
 
 use App\Http\Controllers\admin\CheckinController;
+use App\Http\Controllers\Admin\CommunicationLogController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\EmailTemplateController;
 use App\Http\Controllers\admin\EquipmentController;
 use App\Http\Controllers\admin\MemberController;
+use App\Http\Controllers\admin\MemberEngagementController;
 use App\Http\Controllers\admin\MembershipplanController;
 use App\Http\Controllers\admin\MemberSubscriptionController;
 use App\Http\Controllers\admin\RFIDController;
 use App\Http\Controllers\auth\LoginController;
-use Illuminate\Support\Facades\Route;
 
 // Auth & Dashboard
 Route::get('/', [LoginController::class, 'index']);
@@ -64,4 +66,23 @@ Route::prefix('admin/checkins')->name('admin.checkin.')->group(function () {
     Route::get('/', [CheckinController::class, 'index'])->name('index');
     Route::post('/machine', [CheckinController::class, 'machineCheckin'])->name('machine');
 
+});
+
+Route::prefix('admin')->group(function () {
+    Route::get('/engagement', [MemberEngagementController::class, 'index'])->name('admin.engagement.index');
+    Route::post('/engagement/send', [MemberEngagementController::class, 'send'])->name('admin.engagement.send');
+
+    Route::get('/email-templates', [EmailTemplateController::class, 'index'])->name('admin.email-templates.index');
+    Route::get('/email-templates/create', [EmailTemplateController::class, 'create'])->name('admin.email-templates.create');
+    Route::post('/email-templates', [EmailTemplateController::class, 'store'])->name('admin.email-templates.store');
+    Route::get('/email-templates/{email_template}', [EmailTemplateController::class, 'show'])->name('admin.email-templates.show');
+    Route::get('/email-templates/{email_template}/edit', [EmailTemplateController::class, 'edit'])->name('admin.email-templates.edit');
+    Route::put('/email-templates/{email_template}', [EmailTemplateController::class, 'update'])->name('admin.email-templates.update');
+    Route::delete('/email-templates/{email_template}', [EmailTemplateController::class, 'destroy'])->name('admin.email-templates.destroy');
+});
+use Illuminate\Support\Facades\Route;
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('communication-logs', [CommunicationLogController::class, 'index'])->name('communication-logs.index');
+    Route::get('communication-logs/{log}', [CommunicationLogController::class, 'show'])->name('communication-logs.show');
 });

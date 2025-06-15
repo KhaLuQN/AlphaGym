@@ -33,22 +33,13 @@ class MemberController extends Controller
                 'admin/js/waypoints.min.js',
                 'admin/js/jquery.counterup.min.js',
                 'admin/js/wow.min.js',
-                'admin/js/apexcharts.js',
                 'admin/js/slick.min.js',
                 'admin/js/select2.min.js',
                 'admin/js/owl.carousel.min.js',
                 'admin/js/jquery.magnific-popup.min.js',
                 'admin/js/smooth-scrollbar.js',
                 'admin/js/lottie.js',
-                'admin/js/core.js',
-                'admin/js/charts.js',
-                'admin/js/animated.js',
-                'admin/js/kelly.js',
-                'admin/js/maps.js',
-                'admin/js/worldLow.js',
-                'admin/js/raphael-min.js',
-                'admin/js/morris.js',
-                'admin/js/morris.min.js',
+
                 'admin/js/flatpickr.js',
                 'admin/js/style-customizer.js',
                 'admin/js/chart-custom.js',
@@ -56,6 +47,7 @@ class MemberController extends Controller
                 'admin/js/stylecustom.js',
             ],
         ];
+
         $members = Member::with([
             'latestSubscription.plan',
         ])->get();
@@ -95,36 +87,24 @@ class MemberController extends Controller
 
             ],
             'js'  => [
-                // Core JS
+
                 'admin/js/jquery.min.js',
                 'admin/js/popper.min.js',
                 'admin/js/bootstrap.min.js',
                 'admin/js/jquery.dataTables.min.js',
                 'admin/js/dataTables.bootstrap4.min.js',
-
-                // Hiệu ứng và thư viện khác
                 'admin/js/jquery.appear.js',
-
                 'admin/js/countdown.min.js',
                 'admin/js/waypoints.min.js',
                 'admin/js/jquery.counterup.min.js',
                 'admin/js/wow.min.js',
-                'admin/js/apexcharts.js',
                 'admin/js/slick.min.js',
                 'admin/js/select2.min.js',
                 'admin/js/owl.carousel.min.js',
                 'admin/js/jquery.magnific-popup.min.js',
                 'admin/js/smooth-scrollbar.js',
                 'admin/js/lottie.js',
-                'admin/js/core.js',
-                'admin/js/charts.js',
-                'admin/js/animated.js',
-                'admin/js/kelly.js',
-                'admin/js/maps.js',
-                'admin/js/worldLow.js',
-                'admin/js/raphael-min.js',
-                'admin/js/morris.js',
-                'admin/js/morris.min.js',
+
                 'admin/js/flatpickr.js',
                 'admin/js/style-customizer.js',
                 'admin/js/chart-custom.js',
@@ -132,6 +112,7 @@ class MemberController extends Controller
                 'admin/js/stylecustom.js',
             ],
         ];
+
         $packages = MembershipPlan::select('plan_id', 'plan_name', 'duration_days', 'price', 'discount_percent')->get();
 
         return view('admin.pages.member.create', compact('config', 'packages'));
@@ -146,7 +127,7 @@ class MemberController extends Controller
             'email'        => 'nullable|email|max:100',
             'notes'        => 'nullable|string',
             'img'          => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'rfid_card_id' => 'nullable|string|max:50', // thẻ mới nếu có
+            'rfid_card_id' => 'nullable|string|max:50',
         ]);
 
         $member = Member::findOrFail($request->member_id);
@@ -157,7 +138,6 @@ class MemberController extends Controller
         $member->notes     = $request->notes;
         $member->status    = $request->status;
 
-        // Nếu có thẻ mới thì kiểm tra trùng
         if ($request->filled('rfid_card_id')) {
             $existingRfid = Member::where('rfid_card_id', $request->rfid_card_id)
                 ->where('member_id', '!=', $member->member_id)

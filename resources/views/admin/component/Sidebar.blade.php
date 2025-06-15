@@ -64,7 +64,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{-- route('admin.payments.index') --}}" class="iq-waves-effect">
+                    <a href="#" class="iq-waves-effect">
                         <i class="las la-file-invoice-dollar iq-arrow-left"></i><span>Thanh Toán</span>
                     </a>
                 </li>
@@ -91,30 +91,43 @@
                         <i class="ri-arrow-right-s-line iq-arrow-right"></i>
                     </a>
                     <ul id="articleManagement" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                        <li><a href="{{-- route('admin.articles.index') --}}"><i class="las la-list-alt"></i>Tất cả Bài Viết</a></li>
-                        <li><a href="{{-- route('admin.articles.create') --}}"><i class="las la-pen-nib"></i>Viết Bài Mới</a></li>
-                        <li><a href="{{-- route('admin.article_categories.index') --}}"><i class="las la-sitemap"></i>Danh Mục Bài Viết</a></li>
+                        <li><a href="#"><i class="las la-list-alt"></i>Tất cả Bài Viết</a></li>
+                        <li><a href="#"><i class="las la-pen-nib"></i>Viết Bài Mới</a></li>
+                        <li><a href="#"><i class="las la-sitemap"></i>Danh Mục Bài Viết</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="{{-- route('admin.trial_registrations.index') --}}" class="iq-waves-effect">
+                    <a href="#" class="iq-waves-effect">
                         <i class="las la-user-clock iq-arrow-left"></i><span>Đăng Ký Tập Thử</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{-- route('admin.testimonials.index') --}}" class="iq-waves-effect">
+                    <a href="#" class="iq-waves-effect">
                         <i class="las la-comments iq-arrow-left"></i><span>Phản Hồi Khách Hàng</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{-- route('admin.ai_knowledge_base.index') --}}" class="iq-waves-effect">
+                    <a href="#" class="iq-waves-effect">
                         <i class="las la-robot iq-arrow-left"></i><span>Cơ Sở Tri Thức AI</span>
                     </a>
                 </li>
+
+                <li class="iq-menu-title">
+                    <i class="ri-subtract-line"></i><span>Marketing & CSKH</span>
+                </li>
                 <li>
-                    <a href="{{-- route('admin.website_settings.index') --}}" class="iq-waves-effect">
-                        <i class="las la-cog iq-arrow-left"></i><span>Cấu Hình Website</span>
+                    <a href="#emailMarketing" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
+                        <i class="las la-bullhorn iq-arrow-left"></i><span>Chiến Dịch Email</span>
+                        <i class="ri-arrow-right-s-line iq-arrow-right"></i>
                     </a>
+                    <ul id="emailMarketing" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                        <li><a href="{{ route('admin.engagement.index') }}"><i class="las la-paper-plane"></i>Gửi
+                                Email Thủ Công</a></li>
+                        <li><a href="{{ route('admin.email-templates.index') }}"><i class="las la-file-alt"></i>Quản
+                                Lý Mẫu Email</a></li>
+                        <li><a href="{{ route('admin.communication-logs.index') }}"><i
+                                    class="las la-history"></i>Lịch Sử Gửi</a></li>
+                    </ul>
                 </li>
 
 
@@ -122,7 +135,7 @@
                     <i class="ri-subtract-line"></i><span>Quản Lý Hệ Thống</span>
                 </li>
                 <li>
-                    <a href="{{-- route('admin.users.index') --}}" class="iq-waves-effect">
+                    <a href="#" class="iq-waves-effect">
                         <i class="las la-user-shield iq-arrow-left"></i><span>Tài Khoản Nhân Viên</span>
                     </a>
                 </li>
@@ -132,7 +145,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{-- route('admin.reports.index') --}}" class="iq-waves-effect">
+                    <a href="#" class="iq-waves-effect">
                         <i class="las la-chart-bar iq-arrow-left"></i><span>Báo Cáo & Thống Kê</span>
                     </a>
                 </li>

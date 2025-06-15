@@ -34,22 +34,13 @@ class RFIDController extends Controller
                 'admin/js/waypoints.min.js',
                 'admin/js/jquery.counterup.min.js',
                 'admin/js/wow.min.js',
-                'admin/js/apexcharts.js',
                 'admin/js/slick.min.js',
                 'admin/js/select2.min.js',
                 'admin/js/owl.carousel.min.js',
                 'admin/js/jquery.magnific-popup.min.js',
                 'admin/js/smooth-scrollbar.js',
                 'admin/js/lottie.js',
-                'admin/js/core.js',
-                'admin/js/charts.js',
-                'admin/js/animated.js',
-                'admin/js/kelly.js',
-                'admin/js/maps.js',
-                'admin/js/worldLow.js',
-                'admin/js/raphael-min.js',
-                'admin/js/morris.js',
-                'admin/js/morris.min.js',
+
                 'admin/js/flatpickr.js',
                 'admin/js/style-customizer.js',
                 'admin/js/chart-custom.js',
@@ -58,7 +49,6 @@ class RFIDController extends Controller
             ],
         ];
 
-        // Lấy danh sách thành viên có thẻ RFID, sắp xếp theo trạng thái và ngày tham gia
         $members = Member::whereNotNull('rfid_card_id')
             ->orderBy('status', 'desc')
             ->orderBy('join_date', 'desc')
@@ -74,7 +64,6 @@ class RFIDController extends Controller
     {
         $member = Member::findOrFail($id);
 
-        // Validate nếu member có thẻ RFID
         if (empty($member->rfid_card_id)) {
             return redirect()->back()
                 ->with('error', 'Thành viên này không có thẻ RFID!');
@@ -96,7 +85,6 @@ class RFIDController extends Controller
     {
         $member = Member::findOrFail($id);
 
-        // Kiểm tra nếu thành viên không có thẻ
         if (empty($member->rfid_card_id)) {
             return redirect()->back()
                 ->with('error', 'Thành viên này không có thẻ RFID!');

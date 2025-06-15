@@ -136,7 +136,8 @@
                                                                 @method('DELETE')
                                                                 <button type="submit"
                                                                     class="btn btn-sm bg-danger ml-2 text-white">
-                                                                    <i class="ri-delete-bin-line"></i>
+                                                                    <i class="ri-delete-bin-line"
+                                                                        style="font-size: 1.2rem;"></i>
                                                                 </button>
                                                             </form>
 

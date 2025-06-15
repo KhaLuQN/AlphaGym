@@ -22,4 +22,5 @@
 @endif
 
 @yield('customjs')
+
 @include('admin.layout.foot')
